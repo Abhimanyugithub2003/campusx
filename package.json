@@ -1,0 +1,18 @@
+{
+  "name": "campusx",
+  "version": "1.0.0",
+  "description": "CampusX – Student Resale & Live Auction Marketplace with ML Trust Scoring",
+  "scripts": {
+    "dev": "concurrently -n \"backend,ml,frontend\" -c \"blue,magenta,cyan\" \"npm --prefix backend run dev\" \"python -m uvicorn main:app --app-dir ml-service --reload --port 8000\" \"npm --prefix frontend run dev\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:ml": "python -m uvicorn main:app --app-dir ml-service --reload --port 8000",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend test",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
